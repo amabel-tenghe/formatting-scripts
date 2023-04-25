@@ -1,5 +1,4 @@
 #!/usr/bin/env python
-###!/usr/bin/env python
 
 '''
 This script was written to create a formatted list of author affiliation list
@@ -29,6 +28,7 @@ import pandas as pd
 import numpy as np
 import itertools
 import argparse
+import warnings 
 import re
 import os.path
 import sys
@@ -242,5 +242,5 @@ print(" Done.")
 
 ####################
 ## Example usage:
-## python affiliation_formater.py -i author_list.csv -o output.html
+## python affiliation_formatter.py -i author_list.csv -o output.html
 ###################
