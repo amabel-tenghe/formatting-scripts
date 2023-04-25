@@ -235,3 +235,8 @@ f.write(html)
 f.close()
 
 print(" Done.")
+
+####################
+## Example usage:
+## python affiliation_formater.py -i author_list.csv -o output.html
+###################
