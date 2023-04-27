@@ -39,7 +39,7 @@ parser.add_argument_group('Options')
 parser.add_argument(
     "-i", "--input", help="Input file in .xlsx or .csv format (REQUIRED)", required=True)
 parser.add_argument(
-    "-o", "--output", help="String text to be used as output file name (.html format)", required=False)
+    "-o", "--output", help="String text to be used as output file name (.html format)", required=False, default="inputFilename.html")
 args = parser.parse_args()
 #========================================================================
 ### Functions
