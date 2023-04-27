@@ -147,6 +147,7 @@ else:
         outputFile = filename.groups()[0] + ".html"
 
 # Status update:
+print("\n")
 print(f"[Info] Input file:  {inputFile}")
 print(f"[Info] Output file: {outputFile}\n")
 
@@ -154,10 +155,20 @@ print(f"[Info] Output file: {outputFile}\n")
 if not os.path.isfile(inputFile):
     sys.exit(f"[Error] Input file {inputFile} does not exist.\n")
 try:
-    infile = pd.read_csv(inputFile, sep=';')
-    cols = infile.columns.tolist()
-    cols = [x.title() for x in cols]
-    infile.columns = cols
+    # read csv file
+    if inputFile.endswith(".csv"):
+        infile = pd.read_csv(inputFile, sep=';')
+        cols = infile.columns.tolist()
+        cols = [x.title() for x in cols]
+        infile.columns = cols
+    elif inputFile.endswith(".xlsx"):
+        warnings.simplefilter("ignore")
+        infile = pd.read_excel(inputFile)
+        cols = infile.columns.tolist()
+        cols = [x.title() for x in cols]
+        infile.columns = cols
+        warnings.resetwarnings()
+
 except:
     sys.exit("[Error] input file could not be loaded!")
 
@@ -202,6 +213,7 @@ for row in infile.iterrows():
             affiliation_list[affiliation] = affiliation_index
             numbers.append(affiliation_list[affiliation])
         names_numbers.append([row[1]['full_name'], numbers])
+
 
 
 ### Format Final Output
