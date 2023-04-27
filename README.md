@@ -6,7 +6,7 @@ Scripts for formatting different targets
 Creates a formatted list of author affiliations for publications with too many authors
 
 *** Usage ***
-Typing ./affiliation_formatter.py -h will print help message
+Typing `./affiliation_formatter.py` -h will print help message
 
 ```
 usage: affiliation_formatter.py [-h] -i INPUT [-o OUTPUT]
@@ -18,7 +18,7 @@ options:
   -i INPUT, --input INPUT
                         Input file in .xlsx or .csv format (REQUIRED) (default: None)
   -o OUTPUT, --output OUTPUT
-                        String text to be used as output file name (.html format) (default: None)
+                        String text to be used as output file name (.html format) (default: inputFilename.html)
 
 ```
 
@@ -37,10 +37,13 @@ Optional fileds - Affiliation fields:
 * Country
 
 The affiliation fields can be repeated as many times as necessary. Other fields
-in the input file will not be considered.
+in the input file will be ignored.
 
 
-**Output formats**
+**Output format**
+
+Providing the name of the output file is optional, if not specified, the filename will be the same as the input file, except the extension will be html
+The html file can be read by Word or other programs that deal with html (OpenOffice and LibreOffice should be fine) and saved in doc or docx format
 
 Author names: [First Name] [Middle name initials]. [Last name]^[affiliation_number]
 
