@@ -23,6 +23,7 @@ options:
 ```
 
 **Input File**
+The script relies on a previously compiled excel table with the author names and associated affiliations.
 
 Required fields of the input .xlsx or .csv file:
 
