@@ -136,7 +136,7 @@ def get_affiliation(row, suffixes):
             if not pd.isnull(city):
                 affiliation += ", " + city.strip()
             if not pd.isnull(postcode):
-                affiliation += " " + str(postcode).strip()
+                affiliation += " " + str(int(postcode)).strip()
             if not pd.isnull(country):
                 affiliation += ", " + country.strip()
 
@@ -152,21 +152,24 @@ def generate_assign_aff_numbers(indata):
     names_numbers = []
     affiliation_dict = {}
     affiliation_index = 0
+    #print(indata.shape())
 
     for row in indata.iterrows():
         numbers = []
+        #print(row)
 
         # checking if the given affiliation is already in the dictionary
         # If not, add affiliation number
         for affiliation in row[1]["affiliation_total"]:
             try:
                 numbers.append(affiliation_dict[affiliation])
+                names_numbers.append([row[1]['full_name'], numbers])
             except:
                 affiliation_index += 1
                 affiliation_dict[affiliation] = affiliation_index
                 numbers.append(affiliation_dict[affiliation])
                 names_numbers.append([row[1]['full_name'], numbers])
-
+            
     return affiliation_dict, names_numbers
 
 #=================================================================================
@@ -201,7 +204,7 @@ def main(args):
         
     if inputFile.endswith(".csv"):
         infile = pd.read_csv(inputFile, sep=';')
-        infile= infile.astype('string')
+        #infile= infile.astype('string')
         cols = infile.columns.tolist()
         cols = [x.title() for x in cols]
         infile.columns = cols
@@ -217,7 +220,6 @@ def main(args):
     ## Generate formatted full-names:
     infile['full_name'] = infile.apply(get_fullname, axis=1)
 
-
     ## Get maximum number of affiliations per author 
     suffixes= get_num_affi_author(indata=infile)
 
@@ -229,7 +231,8 @@ def main(args):
     affiliation_info= generate_assign_aff_numbers(indata=infile)
 
     ## Format Final Output
-    affiliation_dict_sorted = sorted(affiliation_info[0], key=affiliation_info[0].get)
+    affiliation_dict_sorted = sorted(affiliation_info[0], key=affiliation_info[0].get) 
+    
 
     print("[Info] Formatting output... ")
     ## Now we have to print out the affiliation list sorted for the dictionary value:
