@@ -114,6 +114,14 @@ def get_num_affi_author(indata):
     return suffixes
 
 
+def is_integer(n):
+    try:
+        float(n)
+    except ValueError:
+        return False
+    else:
+        return float(n).is_integer()
+
 def get_affiliation(row, suffixes):
     '''
     Generate a list of affiliations
@@ -135,8 +143,11 @@ def get_affiliation(row, suffixes):
             affiliation += inst.strip()
             if not pd.isnull(city):
                 affiliation += ", " + city.strip()
-            if not pd.isnull(postcode):
+            if not pd.isnull(postcode) and isinstance(postcode, float):
                 affiliation += " " + str(int(postcode)).strip()
+            elif not pd.isnull(postcode):
+                affiliation += " " + str(postcode).strip()
+
             if not pd.isnull(country):
                 affiliation += ", " + country.strip()
 
