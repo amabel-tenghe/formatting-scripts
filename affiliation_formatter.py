@@ -37,7 +37,7 @@ parser = argparse.ArgumentParser(
     description="Create a formatted list of author affiliation list for publications with too many authors")
 parser.add_argument_group('Options')
 parser.add_argument(
-    "-i", "--input", help="Input file in .xlsx or .csv format (REQUIRED)", required=True)
+    "-i", "--input", help="Input file is in .csv format (REQUIRED)", required=True)
 parser.add_argument(
     "-o", "--output", help="String text to be used as output file name (.html format)", required=False, default="inputFilename.html")
 args = parser.parse_args()
