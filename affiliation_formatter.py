@@ -181,7 +181,14 @@ def generate_assign_aff_numbers(indata):
                 numbers.append(affiliation_dict[affiliation])
                 names_numbers.append([row[1]['full_name'], numbers])
             
-    return affiliation_dict, names_numbers
+        # remove duplicates
+        out_names_numbers = []
+        for i in names_numbers:
+            if i in out_names_numbers:
+                next
+            else:
+                out_names_numbers.append(i)
+    return affiliation_dict, out_names_numbers
 
 #=================================================================================
 
