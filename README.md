@@ -16,7 +16,7 @@ Create a formatted list of author affiliation list for publications with too man
 options:
   -h, --help            show this help message and exit
   -i INPUT, --input INPUT
-                        Input file in .xlsx or .csv format (REQUIRED) (default: None)
+                        Input file in .csv format (REQUIRED) (default: None)
   -o OUTPUT, --output OUTPUT
                         String text to be used as output file name (.html format) (default: inputFilename.html)
 
@@ -26,7 +26,7 @@ options:
 
 The script relies on a previously compiled excel table with the author names and associated affiliations.
 
-Required fields of the input .xlsx or .csv file:
+Required fields of the input .csv file:
 
 * First Name
 * Middle Name" (Only initials without spaces)
