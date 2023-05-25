@@ -4,7 +4,7 @@
 Creates a formatted list of author affiliations for publications with too many authors
 
 Input:
-A .xlsx or .csv file 
+A .csv file 
 
 Required fields of the input file:
 "First Name",
@@ -290,5 +290,5 @@ if __name__ == '__main__':
 
 ####################
 ## Example usage:
-## python affiliation_formatter.py -i author_list.xlsx -o output.html
+## python affiliation_formatter.py -i author_list.csv -o output.html
 ###################
