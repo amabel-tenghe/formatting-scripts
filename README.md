@@ -6,6 +6,7 @@ Scripts for formatting different targets
 Creates a formatted list of author affiliations for publications with too many authors
 
 *** Usage ***
+
 Typing `./affiliation_formatter.py` -h will print help message
 
 ```
@@ -18,7 +19,7 @@ options:
   -i INPUT, --input INPUT
                         Input file in .csv format (REQUIRED) (default: None)
   -o OUTPUT, --output OUTPUT
-                        String text to be used as output file name (.html format) (default: inputFilename.html)
+                        String text to be used as output file name (default: inputFilename.html)
 
 ```
 
