@@ -5,7 +5,7 @@ Scripts for formatting different targets
 
 Creates a formatted list of author affiliations for publications with too many authors
 
-***Usage***
+**Usage**
 
 Typing `./affiliation_formatter.py -h` will print help message
 
@@ -30,7 +30,7 @@ The script relies on a previously compiled excel table with the author names and
 Required fields of the input .csv file:
 
 * First Name
-* Middle Name" (Only initials without spaces)
+* Middle Name" 
 * Last Name
 
 Optional fileds - Affiliation fields:

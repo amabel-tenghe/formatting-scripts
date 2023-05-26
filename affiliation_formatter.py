@@ -42,10 +42,7 @@ parser.add_argument(
     "-o", "--output", help="String text to be used as output file name (.html format)", required=False, default="inputFilename.html")
 args = parser.parse_args()
 #========================================================================
-### Functions
 # Check fields
-
-
 def check_fields(infile, headerTwo=False):
     inheader = ['First Name', 'Middle Name', 'Last Name',
                 'Institute/Department/University', 'City/State', 'Post/Zip code', 'Country']
@@ -76,6 +73,7 @@ def get_fullname(row):
     last = row['Last Name']
     first_name = np.nan if pd.isnull(first) else first.strip()
     middle_name = np.nan if pd.isnull(middle) else middle.strip()
+    middle_name = middle_name if pd.isnull(middle_name) else re.sub("\s+","", middle_name)
     last_name = np.nan if pd.isnull(last) else last.strip()
 
     try:
@@ -131,7 +129,6 @@ def get_affiliation(row, suffixes):
     affiliation_list = []
 
     for suffix in suffixes:
-        #print(suffix)
         affiliation = ""
 
         inst = row['Institute/Department/University'+suffix]
@@ -163,11 +160,9 @@ def generate_assign_aff_numbers(indata):
     names_numbers = []
     affiliation_dict = {}
     affiliation_index = 0
-    #print(indata.shape())
 
     for row in indata.iterrows():
         numbers = []
-        #print(row)
 
         # checking if the given affiliation is already in the dictionary
         # If not, add affiliation number
@@ -222,7 +217,6 @@ def main(args):
         
     if inputFile.endswith(".csv"):
         infile = pd.read_csv(inputFile, sep=';')
-        #infile= infile.astype('string')
         cols = infile.columns.tolist()
         cols = [x.title() for x in cols]
         infile.columns = cols
