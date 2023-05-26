@@ -5,9 +5,9 @@ Scripts for formatting different targets
 
 Creates a formatted list of author affiliations for publications with too many authors
 
-*** Usage ***
+***Usage***
 
-Typing `./affiliation_formatter.py` -h will print help message
+Typing `./affiliation_formatter.py -h` will print help message
 
 ```
 usage: affiliation_formatter.py [-h] -i INPUT [-o OUTPUT]
