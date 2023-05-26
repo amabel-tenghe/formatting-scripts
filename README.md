@@ -25,7 +25,7 @@ options:
 
 **Input File**
 
-The script relies on a previously compiled excel table with the author names and associated affiliations.
+The script relies on a previously compiled excel table with the author names and associated affiliations. The excel table should be saved as .csv before use
 
 Required fields of the input .csv file:
 
